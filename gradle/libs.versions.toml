@@ -1,0 +1,71 @@
+[versions]
+activity = "1.9.3"
+agp = "8.7.3"
+appcompat = "1.7.0"
+composeBom = "2024.11.00"
+constraintlayout = "2.2.0"
+coreKtx = "1.15.0"
+glide = "4.16.0"
+glideCompose = "1.0.0-beta01"
+jetbrainsKotlinJvm = "2.1.0"
+koin = "4.0.0"
+koinAnnotations = "1.4.0"
+kotlin = "2.1.0"
+ksp = "2.1.0-1.0.29"
+liveData = "2.8.7"
+material = "1.12.0"
+retrofit = "2.11.0"
+serialization = "1.7.3"
+slidingPaneLayout = "1.2.0"
+
+[libraries]
+androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+liveData = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "liveData" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization" }
+slidingPaneLayout = { module = "androidx.slidingpanelayout:slidingpanelayout", version.ref = "slidingPaneLayout" }
+
+# region retrofit
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+retrofit-converter-serialization = { module = "com.squareup.retrofit2:converter-kotlinx-serialization", version.ref = "retrofit" }
+# endregion retrofit
+
+# region koin
+koin = { module = "io.insert-koin:koin-core", version.ref = "koin" }
+koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
+koin-annotations = { module = "io.insert-koin:koin-annotations", version.ref = "koinAnnotations" }
+koin-compiler = { module = "io.insert-koin:koin-ksp-compiler", version.ref = "koinAnnotations" }
+# endregion koin
+
+# region glide
+glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
+glide-compose = { module = "com.github.bumptech.glide:compose", version.ref = "glideCompose" }
+# endregion glide
+
+# region compose
+compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+compose-livedata = { module = "androidx.compose.runtime:runtime-livedata" }
+compose-material = { module = "androidx.compose.material3:material3" }
+compose-ui = { module = "androidx.compose.ui:ui" }
+compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
+compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
+# endregion
+
+[bundles]
+compose = ["compose-material", "compose-ui", "compose-ui-tooling-preview", "compose-livedata"]
+glide = ["glide", "glide-compose"]
+koin = ["koin-android", "koin-annotations"]
+retrofit = ["retrofit", "retrofit-converter-serialization"]
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+
